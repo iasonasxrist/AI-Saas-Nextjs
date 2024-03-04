@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { trpc } from "../_trpc/client";
 
 import { useSearchParams } from "next/navigation";
 
@@ -9,11 +10,13 @@ const Page = async () => {
   const searchParams = useSearchParams();
   const origin = searchParams.get("origin");
 
-  const apiResponse = await fetch(`/api/whatever`)
-
-  const data = await apiResponse.json()
-
-  return <div>route</div>;
+  const { data, isLoading } = trpc.authCallback.useQuery(undefined, {
+    onSuccess: ({ success }) => {
+      if (success) {
+        router.push(origin ? `/${origin}` : "/dashboard");
+      }
+    },
+  });
 };
 
 export default Page;
