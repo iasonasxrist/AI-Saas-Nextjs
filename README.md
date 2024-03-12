@@ -1,5 +1,5 @@
 
-# InfluenceAi - A Modern SaaS-Platform based oN AI
+# InfluenceAi - A Modern SaaS-Platform based on AI 
 
   
 
