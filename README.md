@@ -7,10 +7,6 @@ Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind
 
   
 
-<p align="center">
-  <img src="https://github.com/iasonasxrist/next-ecommerce-cms/blob/saas/influenceai/public/thumbnail.png" alt="Project Image" style="height:400px; width:600px;">
-</p>
-
   
 
 ## Copy & Paste List to follow along with the video (annoying stuff we don't wanna type out ourselves)
