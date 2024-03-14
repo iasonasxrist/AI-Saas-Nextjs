@@ -1,6 +1,11 @@
 
 # InfluenceAi - A Modern SaaS-Platform based on AI 
 
+
+<p align="center">
+  <img src="https://github.com/iasonasxrist/next-ecommerce-cms/blob/saas/influenceai/public/thumbnail.png" alt="Project Image" style="height:400px; width:600px;">
+</p>
+
   
 
 Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind
