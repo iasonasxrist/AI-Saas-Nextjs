@@ -6,7 +6,7 @@ import { Ghost, Loader2, MessageSquare, Plus, Trash } from "lucide-react";
 // import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 // import { format } from "date-fns";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import { useState } from "react";
 // import { getUserSubscriptionPlan } from '@/lib/stripe'
 
