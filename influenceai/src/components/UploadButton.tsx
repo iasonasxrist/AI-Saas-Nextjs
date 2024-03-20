@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "../components/ui/Dialog";
-import { Button } from "../components/ui/Button";
+import { Button } from "./ui/button";
 
 import Dropzone from "react-dropzone";
 import { Cloud, File, Loader2 } from "lucide-react";
