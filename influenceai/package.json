@@ -33,7 +33,7 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.51.1",
     "sonner": "^1.4.32",
-    "tailwind-merge": "^2.2.0",
+    "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
   },

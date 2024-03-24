@@ -3,10 +3,10 @@
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-// import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-// import { tools } from "@/constants";
+import { tools } from "@/constants";
 
 export default function HomePage() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function HomePage() {
           Chat with the smartest AI - Experience the power of AI
         </p>
       </div>
-      {/* <div className="px-4 md:px-20 lg:px-32 space-y-4">
+      <div className="px-4 md:px-20 lg:px-32 space-y-4">
         {tools.map((tool) => (
           <Card
             onClick={() => router.push(tool.href)}
@@ -37,7 +37,7 @@ export default function HomePage() {
             <ArrowRight className="w-5 h-5" />
           </Card>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }
