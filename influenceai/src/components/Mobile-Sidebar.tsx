@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/Sheet";
 import { Sidebar } from "@/components/Sidebar";
 
 export const MobileSidebar = () => {

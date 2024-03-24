@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Montserrat } from "next/font/google";
+
 import {
   Code,
   ImageIcon,
@@ -12,10 +14,8 @@ import {
   Settings,
   VideoIcon,
 } from "lucide-react";
-import { usePathname } from "next/navigation";
-
 import { cn } from "@/lib/utils";
-import { FreeCounter } from "@/components/free-counter";
+// import { FreeCounter } from "@/components/free-counter";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
 
