@@ -73,8 +73,8 @@ body,
     --ring: 12 6.5% 15.1%;
   }
 }
-/*  
-@layer base {
+ 
+/* @layer base {
   * {
     @apply border-border;
   }

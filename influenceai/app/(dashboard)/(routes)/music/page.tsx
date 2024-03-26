@@ -99,7 +99,7 @@ const MusicPage = () => {
               )}
             />
             <Button
-              className="col-span-12 lg:col-span-2 w-full"
+              className="rounded-md bg-black text-white  col-span-12 lg:col-span-2 w-full"
               type="submit"
               disabled={isLoading}
               size="icon"

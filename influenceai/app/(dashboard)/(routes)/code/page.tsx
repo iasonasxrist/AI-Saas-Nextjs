@@ -8,7 +8,6 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/navigation";
-import { ChatCompletionRequestMessage } from "openai";
 
 import { BotAvatar } from "../../../../components/bot-avatar";
 import { Heading } from "../../../../components/heading";
@@ -29,6 +28,11 @@ import { useProModal } from "../../../../hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
+interface ChatCompletionRequestMessage {
+  role: string;
+  content: string;
+}
+
 const CodePage = () => {
   const router = useRouter();
   const proModal = useProModal();
@@ -45,10 +49,13 @@ const CodePage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
+      const userMessage: ChatCompletionRequestMessage[] = {
+        role: "user",
+        content: values.prompt,
+      };
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post('/api/code', { messages: newMessages });
+      const response = await axios.post("/api/code", { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
 
       form.reset();
@@ -61,7 +68,7 @@ const CodePage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
 
   return (
     <div>
@@ -76,7 +83,7 @@ const CodePage = () => {
         <div>
           <Form {...form}>
             <form
-              // onSubmit={form.handleSubmit(onSubmit)}
+              onSubmit={form.handleSubmit(onSubmit)}
               className="
                 rounded-lg 
                 border 
@@ -106,7 +113,7 @@ const CodePage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className=" text-white bg-black col-span-12 lg:col-span-2 w-full"
                 type="submit"
                 disabled={isLoading}
                 size="icon"
