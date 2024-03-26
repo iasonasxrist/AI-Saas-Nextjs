@@ -81,7 +81,7 @@ const PhotoPage = () => {
       <div className="px-4 lg:px-8">
         <Form {...form}>
           <form
-            // onSubmit={form.handleSubmit(onSubmit)}
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 

@@ -6,8 +6,8 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { FileAudio } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Music, Send } from "lucide-react";
 
 import { Heading } from "../../../../components/heading";
 import { Button } from "../../../../components/ui/button";
@@ -20,14 +20,14 @@ import {
 } from "../../../../components/ui/form";
 import { Loader } from "../../../../components/loader";
 import { Empty } from "../../../../components/ui/empty";
-import { useProModal } from "./../../../../hooks/use-pro-modal";
+import { useProModal } from "../../../../hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
-const VideoPage = () => {
-  const router = useRouter();
+const MusicPage = () => {
   const proModal = useProModal();
-  const [video, setVideo] = useState<string>();
+  const router = useRouter();
+  const [music, setMusic] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,11 +40,11 @@ const VideoPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setVideo(undefined);
+      setMusic(undefined);
 
-      const response = await axios.post("/api/video", values);
+      const response = await axios.post("/api/music", values);
 
-      setVideo(response.data[0]);
+      setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
@@ -60,11 +60,11 @@ const VideoPage = () => {
   return (
     <div>
       <Heading
-        title="Video Generation"
-        description="Turn your prompt into video."
-        icon={FileAudio}
-        iconColor="text-orange-700"
-        bgColor="bg-orange-700/10"
+        title="Music Generation"
+        description="Turn your prompt into music."
+        icon={Music}
+        iconColor="text-emerald-500"
+        bgColor="bg-emerald-500/10"
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
@@ -91,7 +91,7 @@ const VideoPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Clown fish swimming in a coral reef"
+                      placeholder="Piano solo"
                       {...field}
                     />
                   </FormControl>
@@ -113,18 +113,15 @@ const VideoPage = () => {
             <Loader />
           </div>
         )}
-        {!video && !isLoading && <Empty label="No video files generated." />}
-        {video && (
-          <video
-            controls
-            className="w-full aspect-video mt-8 rounded-lg border bg-black"
-          >
-            <source src={video} />
-          </video>
+        {!music && !isLoading && <Empty label="No music generated." />}
+        {music && (
+          <audio controls className="w-full mt-8">
+            <source src={music} />
+          </audio>
         )}
       </div>
     </div>
   );
 };
 
-export default VideoPage;
+export default MusicPage;
