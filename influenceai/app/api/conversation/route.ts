@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import { createChatCompletion, OpenAI } from "openai";
+import OpenAI from "openai";
 
 // import { checkSubscription } from "@/lib/subscription";
 // import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     //   return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
     // }
 
-    const response = await openai.createChatCompletion({
+    const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages,
     });
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     //   await incrementApiLimit();
     // }
 
-    return NextResponse.json(response.data.choices[0].message);
+    return NextResponse.json(response.choices[0].message.content);
   } catch (error) {
     console.log("[CONVERSATION_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
