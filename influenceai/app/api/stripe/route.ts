@@ -1,8 +1,8 @@
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import prismadb from "@/lib/prismadb";
-import { stripe } from "@/lib/stripe";
+import prismadb from "../../../db/index";
+import { stripe } from "../../../lib/utils";
 import { absoluteUrl } from "../../../lib/utils";
 
 const settingsUrl = absoluteUrl("/settings");

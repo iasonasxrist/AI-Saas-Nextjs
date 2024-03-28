@@ -1,9 +1,7 @@
 "use client";
-
 import TypewriterComponent from "typewriter-effect";
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
-
 import { Button } from "./ui/button";
 
 export const LandingHero = () => {
@@ -19,8 +17,8 @@ export const LandingHero = () => {
               strings: [
                 "Chatbot.",
                 "Photo Generation.",
-                "Blog Writing.",
-                "Mail Writing.",
+                "Video Generation.",
+                "Code Generation.",
               ],
               autoStart: true,
               loop: true,

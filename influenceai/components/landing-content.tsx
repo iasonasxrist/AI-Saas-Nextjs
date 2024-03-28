@@ -1,6 +1,10 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -32,6 +36,8 @@ const testimonials = [
 ];
 
 export const LandingContent = () => {
+  const { isSignedIn } = useAuth();
+
   return (
     <div className="px-10 pb-20">
       <h2 className="text-center text-4xl text-white font-extrabold mb-10">
@@ -56,6 +62,33 @@ export const LandingContent = () => {
             </CardHeader>
           </Card>
         ))}
+      </div>
+
+      <div className="px-10 py-10 flex flex-col items-center justify-center h-screen">
+        {/* Image with explicit width and height */}
+        <Image
+          alt="Generated"
+          src="/xillustration-1.png"
+          width={500}
+          height={500}
+          className="mb-8 rounded-lg shadow-md" // Optional styling for image
+        />
+
+        <h1 className="text-xl text-white font-bold  text-center mb-4">
+          Since you've come this far,
+        </h1>
+        <h2 className="text-2xl  text-white font-bold text-center mb-8">
+          let's make your time worthwhile.
+        </h2>
+
+        <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+          <Button
+            variant="premium"
+            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
+          >
+            Try it for free
+          </Button>
+        </Link>
       </div>
     </div>
   );
