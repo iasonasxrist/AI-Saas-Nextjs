@@ -15,13 +15,13 @@ import {
 } from "./ui/dialog";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from "../hooks/use-pro-modal";
 import { tools } from "../constants";
 import { Card } from "./ui/card";
 import { cn } from "../lib/utils";
 
 export const ProModal = () => {
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const [loading, setLoading] = useState(false);
 
   const onSubscribe = async () => {
@@ -38,8 +38,8 @@ export const ProModal = () => {
   };
 
   return (
-    // <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
-    <Dialog>
+    <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
+    {/* <Dialog> */}
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">

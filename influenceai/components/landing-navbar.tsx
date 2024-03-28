@@ -13,8 +13,8 @@ const font = Montserrat({ weight: "500", subsets: ["latin"] });
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
 
-  return (
-    <nav className="p-4 bg-transparent flex items-center justify-between">
+  return ( 
+    <nav className="p-4 bg-[#2d55ab] flex items-center justify-between">
       <Link href="/" className="flex items-center">
         <div className="relative h-9 w-9 mr-4">
           {/* main image logo */}

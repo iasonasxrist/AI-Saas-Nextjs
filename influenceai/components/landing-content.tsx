@@ -39,7 +39,7 @@ export const LandingContent = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="px-10 pb-20">
+    <div className="px-10 pb-20 bg-[#2d55ab]">
       <h2 className="text-center text-4xl text-white font-extrabold mb-10">
         Testimonials
       </h2>
@@ -47,7 +47,7 @@ export const LandingContent = () => {
         {testimonials.map((item) => (
           <Card
             key={item.description}
-            className="bg-[#192339] border-none text-white"
+            className="bg-[#355db2] border-none text-white"
           >
             <CardHeader>
               <CardTitle className="flex items-center gap-x-2">
