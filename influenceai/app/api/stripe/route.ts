@@ -1,9 +1,9 @@
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import prismadb from "../../../db/index";
-import { stripe } from "../../../lib/utils";
 import { absoluteUrl } from "../../../lib/utils";
+import { stripe } from "../../../lib/stripe";
+import prismadb from "../../../lib/prismadb";
 
 const settingsUrl = absoluteUrl("/settings");
 
@@ -46,7 +46,7 @@ export async function GET() {
               name: "Genius Pro",
               description: "Unlimited AI Generations",
             },
-            unit_amount: 2000,
+            unit_amount: 20,
             recurring: {
               interval: "month",
             },
