@@ -4,7 +4,7 @@ import { LandingContent } from "../../components/landing-content";
 import { LandingFooter } from "../../components/landing-footer";
 const LandingPage = () => {
   return (
-    <div className="h-full ">
+    <div className="h-full bg-[#2d55ab] ">
       <>
         <LandingNavbar />
         <LandingHero />
